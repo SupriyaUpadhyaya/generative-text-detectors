@@ -9,7 +9,7 @@ def generativeTextDetector(candidate_text):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Classify generative vs real text')
-    parser.argparse('candidate_text', type=str, help='Enter the text to be candidate text to be classified')
+    parser.add_argument('candidate_text', type=str, help='Enter the text to be candidate text to be classified')
     args = parser.parser_args()
 
     candidate_text = args.candidate_text
