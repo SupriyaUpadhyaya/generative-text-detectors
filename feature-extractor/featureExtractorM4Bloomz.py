@@ -387,3 +387,5 @@ if __name__ == "__main__":
     df['sent_len_diff_machine'] = normalize_column(df['sent_len_diff_machine'])
     df.to_csv('./features_bloomz_normalized.csv', index=False)
 
+if __name__ == "__main__":
+    

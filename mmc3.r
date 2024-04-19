@@ -1,5 +1,15 @@
 #Final Features
 #Note:  You need to additionally define a "ClassKey", one entry per row in your data matrix, which has the class labels for the training data.  
+# Load the jsonlite package
+library(jsonlite)
+
+# Read the JSONL file
+json_data <- stream_in(file("/Users/supriyaupadhyaya/Library/Mobile Documents/com~apple~CloudDocs/OVGU/project-generative-text-detector/generative-text-detectors/m4/with_n/arxiv_bloomz_train.jsonl"))
+
+# Access the matrix under the key "abstract"
+Mat <- matrix(json_data$machine_abstract, ncol = 1)
+
+ClassKey <- rep(c("1", "0", "class_3"), each = 1920/ 2)
 
 FractTO<-1:nrow(Mat)
 SPP<-1:nrow(Mat)
@@ -166,7 +176,6 @@ for (i in 1:nrow(Mat))
      FractTO[i]<-   length(which(Mat[i, ] == "et"))
  Vet<-as.numeric(FractTO>0)
 V20<-Vet
-
 
 TestMat<-matrix(0, nrow(Mat), 21)
 TestMat[,1 ]<-ClassKey  #The class assignments need to be provided as "ClassKey"
